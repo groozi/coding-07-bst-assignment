@@ -28,6 +28,11 @@ int main(int argc, char** argv) {
     cout << endl;
     cout << "testing display pre order.." << endl;
     binSearchTree->displayPreOrder();
+    cout << endl;
+    cout << "testing displayPostOrder..." << endl;
+    binSearchTree->displayPostOrder();
+    cout << endl;
+    binSearchTree->displayTree();
     //binSearchTree->displayTree();
 
     /*

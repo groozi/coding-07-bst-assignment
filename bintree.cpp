@@ -53,9 +53,62 @@ BinTree::BinTree(int ids[], string strings[]){
     return;
 }
 
+//private getHeight
+int BinTree::getHeight(DataNode *temproot){
+    return 2;
+
+}
+
+//public getHeight
+int BinTree::getHeight(){
+    return getHeight(root);
+}
+
+//private displayTree
+void BinTree::displayTree(){
+    cout << "tree is _____ empty" << endl;
+    cout << "Height " << getHeight() << endl;
+    cout << "Node count: " << endl;
+    cout << endl;
+    cout << "Pre-Order Traversal" << endl;
+    displayPreOrder();
+    cout << endl;
+    cout << "In-Order Traversal" << endl;
+    displayInOrder();
+    cout << endl;
+    cout << "Post-Order Traversal" << endl;
+    displayPostOrder();
+    cout << endl;
+
+}
+
+
+//private displayPostOrder
+void BinTree::displayPostOrder(DataNode *temproot){
+    if (temproot){
+        if (temproot->left){
+            displayPostOrder(temproot->left);
+        }
+
+        if (temproot->right){
+            displayPostOrder(temproot->right);
+        }
+
+        cout << temproot->data.id << " " << temproot->data.information << endl;
+
+
+    }
+
+
+}
+
+//public displayPostOrder
+void BinTree::displayPostOrder(){
+    displayPostOrder(root);
+}
+
 //private displayPreOrder
 void BinTree::displayPreOrder(DataNode *temproot){
-
     if (temproot){
         cout << temproot->data.id << " " << temproot->data.information << endl;
 
@@ -65,21 +118,14 @@ void BinTree::displayPreOrder(DataNode *temproot){
         if (temproot->right){
             displayPreOrder(temproot->right);
         }
-
     }
-
     return;
-
 }
 
 //public displayPreOrder
 void BinTree::displayPreOrder() {
     displayPreOrder(root);
 }
-
-
-
-
 
 //private displayInOrder method
 void BinTree::displayInOrder(DataNode *temproot) {
@@ -92,7 +138,6 @@ void BinTree::displayInOrder(DataNode *temproot) {
             displayInOrder(temproot->right);
         }
     }
-
     return;
 }
 
@@ -100,7 +145,3 @@ void BinTree::displayInOrder(DataNode *temproot) {
 void BinTree::displayInOrder() {
     displayInOrder(root);
 }
-
-
-
-
