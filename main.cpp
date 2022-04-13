@@ -25,6 +25,9 @@ int main(int argc, char** argv) {
     binSearchTree = new BinTree(ids1, strings1);
     cout << endl << "Binary Search Tree created" << endl << endl;
     binSearchTree->displayInOrder();
+    cout << endl;
+    cout << "testing display pre order.." << endl;
+    binSearchTree->displayPreOrder();
     //binSearchTree->displayTree();
 
     /*

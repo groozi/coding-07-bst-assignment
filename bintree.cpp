@@ -53,8 +53,36 @@ BinTree::BinTree(int ids[], string strings[]){
     return;
 }
 
+//private displayPreOrder
+void BinTree::displayPreOrder(DataNode *temproot){
+
+    if (temproot){
+        cout << temproot->data.id << " " << temproot->data.information << endl;
+
+        if (temproot->left){
+            displayPreOrder(temproot->left);
+        }
+        if (temproot->right){
+            displayPreOrder(temproot->right);
+        }
+
+    }
+
+    return;
+
+}
+
+//public displayPreOrder
+void BinTree::displayPreOrder() {
+    displayPreOrder(root);
+}
+
+
+
+
+
+//private displayInOrder method
 void BinTree::displayInOrder(DataNode *temproot) {
-    
     if (temproot) {
         if (temproot->left) {
             displayInOrder(temproot->left);
@@ -68,6 +96,7 @@ void BinTree::displayInOrder(DataNode *temproot) {
     return;
 }
 
+//public displayInOrder
 void BinTree::displayInOrder() {
     displayInOrder(root);
 }
