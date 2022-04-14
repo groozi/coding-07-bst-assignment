@@ -12,6 +12,40 @@ BinTree::BinTree(){
     count = 0;
 }
 
+//public contains method
+bool BinTree::contains(int id){
+    bool flag = false; 
+
+    if (id > 0){
+        if(contains(id, root)){
+            flag = true;
+        }
+    }
+    return flag;
+
+}
+
+//private contains method
+bool BinTree::contains(int id, DataNode* temproot){
+    bool flag;
+
+    if (!temproot){
+        flag = false;
+    }else{
+        if (temproot->data.id == id){
+            flag = true;
+        }else{
+            if (id < temproot->data.id){
+                contains(id, temproot->left);
+            }
+            if (id > temproot->data.id){
+                contains(id, temproot->right);
+            }
+        }
+    }
+    return flag;
+}
+
 
 //public addNode
 bool BinTree::addNode(int id, const string* info){
@@ -36,20 +70,20 @@ bool BinTree::addNode(int id, const string* info){
 }
 
 //private addNode
-bool BinTree::addNode(DataNode* newNode, DataNode** root){
+bool BinTree::addNode(DataNode* newNode, DataNode** temproot){
     bool added = true;
 
     //checking to see if root is empty
-    if (!(*root)){
-        *root = newNode;
+    if (!(*temproot)){
+        *temproot = newNode;
     }else{
-        if (newNode->data.id < (*root)->data.id){
-            if(!addNode(newNode, &(*root)->left)){
+        if (newNode->data.id < (*temproot)->data.id){
+            if(!addNode(newNode, &(*temproot)->left)){
                 added = false;
             }
         }
-        if (newNode->data.id > (*root)->data.id){
-            if(!addNode(newNode, &(*root)->right)){
+        if (newNode->data.id > (*temproot)->data.id){
+            if(!addNode(newNode, &(*temproot)->right)){
                 added = false;
             }
         }
