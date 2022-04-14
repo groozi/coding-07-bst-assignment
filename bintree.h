@@ -24,7 +24,7 @@ public:
     bool isEmpty();
     int getCount();
     bool getRootData(Data*);
-    void displayTree();
+    void displayTree(); //working
 
     //public method prototypes with private overloads
     void clear();
@@ -32,10 +32,10 @@ public:
     bool removeNode(int);
     bool getNode(Data*, int);
     bool contains(int);
-    int getHeight();
-    void displayPreOrder();
-    void displayPostOrder();
-    void displayInOrder();
+    int getHeight(); //stubbed with random height but working
+    void displayPreOrder(); //working with hard coded constructor
+    void displayPostOrder(); //working with hard coded constructor
+    void displayInOrder(); //working with hard coded constructor
 
 private: 
     //attributes
@@ -48,10 +48,10 @@ private:
     DataNode* removeNode(int, DataNode*);
     bool getNode(Data*, int, DataNode*);
     bool contains(int, DataNode*);
-    int getHeight(DataNode*);
-    void displayPreOrder(DataNode*);
-    void displayPostOrder(DataNode*);
-    void displayInOrder(DataNode*);
+    int getHeight(DataNode*); //stubbed with random height but working
+    void displayPreOrder(DataNode*); //working with hard coded constructor
+    void displayPostOrder(DataNode*); //working with hard coded constructor
+    void displayInOrder(DataNode*); //working with hard coded constructor
 
 };
 

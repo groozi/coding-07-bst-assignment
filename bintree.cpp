@@ -53,6 +53,33 @@ BinTree::BinTree(int ids[], string strings[]){
     return;
 }
 
+//public addNode
+bool BinTree::addNode(int id, const string* info){
+    bool added = false;
+
+    if (id > 0 && *info != "/0"){
+        //allocates new node
+        DataNode *newNode = new DataNode;
+        //puts data into node
+        newNode->data.id = id;
+        newNode->data.information = *info;
+        //initializing node's left and right pointers to null
+        newNode->left = NULL;
+        newNode->right = NULL;
+        //passing new node to private addNode method
+        addNode(newNode, &root);
+    }
+    return added;
+}
+
+//private addNode
+bool BinTree::addNode(DataNode* newNode, DataNode** temproot){
+
+    
+}
+
+
+
 //private getHeight
 int BinTree::getHeight(DataNode *temproot){
     return 2;
