@@ -7,51 +7,11 @@
 
 #include "bintree.h"
 
-BinTree::BinTree(int ids[], string strings[]){
-    root = new DataNode;
-    root->left = NULL;
-    root->right = NULL;
-    root->data.id = ids[0];
-    root->data.information = strings[0];
-
-    root->left = new DataNode;
-    root->left->left = NULL;
-    root->left->right = NULL;
-    root->left->data.id = ids[1];
-    root->left->data.information = strings[1];
-
-    root->right = new DataNode;
-    root->right->left = NULL;
-    root->right->right = NULL;
-    root->right->data.id = ids[2];
-    root->right->data.information = strings[2];
-
-    root->left->right = new DataNode;
-    root->left->right->left = NULL;
-    root->left->right->right = NULL;
-    root->left->right->data.id = ids[3];
-    root->left->right->data.information = strings[3];
-    
-    root->left->left = new DataNode;
-    root->left->left->left = NULL;
-    root->left->left->right = NULL;
-    root->left->left->data.id = ids[4];
-    root->left->left->data.information = strings[4];
-    
-    root->left->right->right = new DataNode;
-    root->left->right->right->left = NULL;
-    root->left->right->right->right = NULL;
-    root->left->right->right->data.id = ids[5];
-    root->left->right->right->data.information = strings[5];
-    
-    root->left->right->left = new DataNode;
-    root->left->right->left->left = NULL;
-    root->left->right->left->right = NULL;
-    root->left->right->left->data.id = ids[6];
-    root->left->right->left->data.information = strings[6];
-
-    return;
+BinTree::BinTree(){
+    root = NULL;
+    count = 0;
 }
+
 
 //public addNode
 bool BinTree::addNode(int id, const string* info){
@@ -66,8 +26,11 @@ bool BinTree::addNode(int id, const string* info){
         //initializing node's left and right pointers to null
         newNode->left = NULL;
         newNode->right = NULL;
-        //passing new node to private addNode method
-        addNode(newNode, &root);
+        //passing new node to private addNode method and checking if sucessful to add 1 to count
+        if(addNode(newNode, &root)){
+            count++;
+            added = true;
+        }
     }
     return added;
 }
@@ -111,7 +74,7 @@ int BinTree::getHeight(){
 void BinTree::displayTree(){
     cout << "tree is _____ empty" << endl;
     cout << "Height " << getHeight() << endl;
-    cout << "Node count: " << endl;
+    cout << "Node count: " << count << endl;
     cout << endl;
     cout << "Pre-Order Traversal" << endl;
     displayPreOrder();

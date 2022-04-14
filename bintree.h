@@ -19,7 +19,7 @@ using std::string;
 class BinTree{
 
 public:
-    BinTree(int[], string[]);
+    BinTree();
     ~BinTree();
     bool isEmpty();
     int getCount();

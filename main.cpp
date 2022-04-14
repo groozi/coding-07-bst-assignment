@@ -20,26 +20,9 @@ int main(int argc, char** argv) {
     /*
      *  make and display tree
      */
-
-    BinTree *binSearchTree;
-    binSearchTree = new BinTree(ids1, strings1);
+    BinTree *binSearchTree = new BinTree;
     cout << endl << "Binary Search Tree created" << endl << endl;
-    binSearchTree->displayInOrder();
-    cout << endl;
-    cout << "testing display pre order.." << endl;
-    binSearchTree->displayPreOrder();
-    cout << endl;
-    cout << "testing displayPostOrder..." << endl;
-    binSearchTree->displayPostOrder();
-    cout << endl;
     binSearchTree->displayTree();
-    cout << endl;
-    cout << "testing addNode.." << endl;
-    int x = 2;
-    string ran = "hello";
-    binSearchTree->addNode(x, &ran);
-    binSearchTree->displayTree();
-    //binSearchTree->displayTree();
 
     /*
      *  testing methods on empty tree
@@ -79,7 +62,7 @@ int main(int argc, char** argv) {
     /*
      *  filling tree with test data and displaying
      */
-/*  cout << "Filling Tree" << endl;
+    cout << "Filling Tree" << endl;
     cout << "==============================================" << endl;
     for (int i = 0; i < TESTDATA1; i++) {
         cout << "adding " << ids1[i] << "...";
@@ -92,6 +75,7 @@ int main(int argc, char** argv) {
     cout << endl;
     binSearchTree->displayTree();
 
+/*
     cout << "Testing getRootData() on non-empty tree" << endl;
     cout << "==============================================" << endl;
     if (binSearchTree->getRootData(&tempData)) {
