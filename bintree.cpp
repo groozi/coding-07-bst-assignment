@@ -17,9 +17,7 @@ bool BinTree::contains(int id){
     bool flag = false; 
 
     if (id > 0){
-        if(contains(id, root)){
-            flag = true;
-        }
+        flag = contains(id, root);       
     }
     return flag;
 
@@ -32,17 +30,38 @@ bool BinTree::contains(int id, DataNode* temproot){
     if (!temproot){
         flag = false;
     }else{
-        if (temproot->data.id == id){
+        if (id == temproot->data.id){
             flag = true;
         }else{
             if (id < temproot->data.id){
-                contains(id, temproot->left);
+                flag = contains(id, temproot->left);
             }
             if (id > temproot->data.id){
-                contains(id, temproot->right);
+                flag = contains(id, temproot->right);
             }
         }
     }
+
+    /*
+    if (!temproot){
+        flag = false;
+    }else{
+        if (id == temproot->data.id){
+            flag = true;
+        }else{
+            if (id < temproot->data.id){
+                if(contains(id, temproot->left)){
+                    flag = true;
+                }
+            }
+            if (id > temproot->data.id){
+                if(contains(id, temproot->right)){
+                    flag = true;
+                }
+            }
+        }
+    }
+    */
     return flag;
 }
 

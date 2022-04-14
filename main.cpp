@@ -88,7 +88,7 @@ int main(int argc, char** argv) {
     /*
      *  testing contains randomly
      */
-/*    cout << "Testing contains() randomly" << endl;
+    cout << "Testing contains() randomly" << endl;
     cout << "==============================================" << endl;
     for (int i = 0; i < TESTDATA1; i++) {
         searchidx = random_range(0, TESTDATA1 - 1);
@@ -106,7 +106,7 @@ int main(int argc, char** argv) {
     cout << endl;
     cout << "==============================================" << endl;
     cout << endl;
-*/
+
     /*
      *  testing get node
      */
