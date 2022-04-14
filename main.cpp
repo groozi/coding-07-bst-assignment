@@ -33,6 +33,12 @@ int main(int argc, char** argv) {
     binSearchTree->displayPostOrder();
     cout << endl;
     binSearchTree->displayTree();
+    cout << endl;
+    cout << "testing addNode.." << endl;
+    int x = 2;
+    string ran = "hello";
+    binSearchTree->addNode(x, &ran);
+    binSearchTree->displayTree();
     //binSearchTree->displayTree();
 
     /*

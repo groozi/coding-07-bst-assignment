@@ -73,9 +73,25 @@ bool BinTree::addNode(int id, const string* info){
 }
 
 //private addNode
-bool BinTree::addNode(DataNode* newNode, DataNode** temproot){
+bool BinTree::addNode(DataNode* newNode, DataNode** root){
+    bool added = true;
 
-    
+    //checking to see if root is empty
+    if (!(*root)){
+        *root = newNode;
+    }else{
+        if (newNode->data.id < (*root)->data.id){
+            if(!addNode(newNode, &(*root)->left)){
+                added = false;
+            }
+        }
+        if (newNode->data.id > (*root)->data.id){
+            if(!addNode(newNode, &(*root)->right)){
+                added = false;
+            }
+        }
+    }
+    return added;
 }
 
 
