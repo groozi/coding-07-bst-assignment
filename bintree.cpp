@@ -43,6 +43,58 @@ bool BinTree::getRootData(Data* dataStruct){
     return dataObtained;
 }
 
+//public removeNode method
+bool BinTree::removeNode(int id){
+    bool removed = false;
+    int tempcount = count;
+    root = removeNode(id, root);
+
+    if(count < tempcount){
+        removed = true;
+    }
+    return removed;
+}
+
+//private removeNode method
+DataNode* BinTree::removeNode(int id, DataNode* temproot){
+    DataNode* tempNode;
+
+    //if the root is empty, return the root
+    if (!temproot){
+        tempNode = temproot;
+    //if the root is not empty
+    } else{
+        //if the search id is less than the root id, recurse left
+        if(id < temproot->data.id){
+            temproot->left = removeNode(id, temproot->left);
+        //else if the search id is greater than the root id, recurse right
+        } else if(id > temproot->data.id){
+            temproot->right = removeNode(id, temproot->right);
+        //else, you found the node to be deleted
+        }else{
+            //allocate a temporary DataNode pointer
+            DataNode* temp;
+
+            //if root->left == NULL then this is a node with only 1 child or no child
+            if (temproot->left == NULL){
+                //save the right
+                temp = temproot->right;
+                //delete the root
+                delete(temproot);
+                //set root to the node you saved
+                temproot = temp;
+                //decrement the count
+                count--;
+            }
+
+
+        }
+
+    }
+
+    return tempNode;
+}
+
 //public clear method
 void BinTree::clear(){
     clear(root);
