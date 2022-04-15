@@ -11,6 +11,29 @@ BinTree::BinTree(){
     root = NULL;
     count = 0;
 }
+//public clear method
+void BinTree::clear(){
+    clear(root);
+}
+
+//private clear method
+void BinTree::clear(DataNode* temproot){
+    if (!temproot){
+        return;
+    }else{
+        clear(temproot->left);
+        clear(temproot->right);
+        temproot->left = NULL;
+        temproot->right = NULL;
+        delete (temproot);
+        root = NULL;
+        count--;
+    }
+
+}
+
+
+
 
 //public getNode method
 bool BinTree::getNode(Data* dataStruct, int id){
@@ -161,17 +184,11 @@ void BinTree::displayPostOrder(DataNode *temproot){
         if (temproot->left){
             displayPostOrder(temproot->left);
         }
-
         if (temproot->right){
             displayPostOrder(temproot->right);
         }
-
         cout << temproot->data.id << " " << temproot->data.information << endl;
-
-
     }
-
-
 }
 
 //public displayPostOrder

@@ -184,12 +184,12 @@ int main(int argc, char** argv) {
      *  testing clearing tree
      *  and displaying it
      */
- /*   cout << "Clearing tree... ";
+    cout << "Clearing tree... ";
     binSearchTree->clear();
     cout << "Cleared" << endl << endl;
     binSearchTree->displayTree();
     cout << endl;
-*/
+
     /*
      *  filling tree with poorly chosen test data and displaying it
      */
