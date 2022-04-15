@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
     cout << "removing " << tempid << "... ";
     binSearchTree->removeNode(tempid) ? cout << "removed" << endl : cout << "failed" << endl;
     cout << endl;
-
+*/
     cout << "Testing getRootData() on empty tree" << endl;
     cout << "==============================================" << endl;
     if (binSearchTree->getRootData(&tempData)) {
@@ -45,7 +45,7 @@ int main(int argc, char** argv) {
         cout << "NOT retrieved " << tempData.id << " " << tempData.information << endl;
     }
     cout << endl;
-*/
+
     cout << "Testing contains() and getNode() on empty tree" << endl;
     cout << "==============================================" << endl;
     tempid = random_range(10, 100);
@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
     cout << endl;
     binSearchTree->displayTree();
 
-/*
+
     cout << "Testing getRootData() on non-empty tree" << endl;
     cout << "==============================================" << endl;
     if (binSearchTree->getRootData(&tempData)) {
@@ -84,7 +84,7 @@ int main(int argc, char** argv) {
         cout << "NOT retrieved " << tempData.id << " " << tempData.information << endl;
     }
     cout << endl;
-*/
+
     /*
      *  testing contains randomly
      */

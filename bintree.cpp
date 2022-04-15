@@ -16,15 +16,31 @@ BinTree::~BinTree(){
     clear();
 }
 
-
-
-
 bool BinTree::isEmpty(){
     bool flag = false;
     if(!root){
         flag = true;
     }
     return flag;
+}
+
+int BinTree::getCount(){
+    return count;
+}
+
+bool BinTree::getRootData(Data* dataStruct){
+    bool dataObtained = false;
+
+    if(root){
+        dataStruct->id = root->data.id;
+        dataStruct->information = root->data.information;
+        dataObtained = true;
+    } else{
+        dataStruct->id = -1;
+        dataStruct->information = "";
+
+    }
+    return dataObtained;
 }
 
 //public clear method
@@ -186,7 +202,7 @@ void BinTree::displayTree(){
         cout << "Tree is NOT empty" << endl;
     }
     cout << "Height " << getHeight() << endl;
-    cout << "Node count: " << count << endl;
+    cout << "Node count: " << getCount() << endl;
     cout << endl;
     cout << "Pre-Order Traversal" << endl;
     displayPreOrder();
