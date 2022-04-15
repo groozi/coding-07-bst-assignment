@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include "data.h"
 
 using std::cout;

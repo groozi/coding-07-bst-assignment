@@ -17,6 +17,8 @@ BinTree::~BinTree(){
 }
 
 
+
+
 bool BinTree::isEmpty(){
     bool flag = false;
     if(!root){
@@ -157,12 +159,18 @@ bool BinTree::addNode(DataNode* newNode, DataNode** temproot){
     return added;
 }
 
-
-
 //private getHeight
 int BinTree::getHeight(DataNode *temproot){
-    return 2;
+    int lh = 0;
+    int rh = 0;
 
+    if(!temproot){  
+        return 0;
+    }else{
+        lh = getHeight(temproot->left);
+        rh = getHeight(temproot->right);
+    }
+    return std::max(lh, rh) + 1;
 }
 
 //public getHeight
