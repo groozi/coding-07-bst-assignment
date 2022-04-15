@@ -45,7 +45,7 @@ int main(int argc, char** argv) {
         cout << "NOT retrieved " << tempData.id << " " << tempData.information << endl;
     }
     cout << endl;
-
+*/
     cout << "Testing contains() and getNode() on empty tree" << endl;
     cout << "==============================================" << endl;
     tempid = random_range(10, 100);
@@ -57,7 +57,7 @@ int main(int argc, char** argv) {
         cout << "NOT found: " << tempid << endl;
     }
     cout << endl;
-*/
+
 
     /*
      *  filling tree with test data and displaying
@@ -110,7 +110,7 @@ int main(int argc, char** argv) {
     /*
      *  testing get node
      */
-/*    cout << "Testing getNode() randomly" << endl;
+    cout << "Testing getNode() randomly" << endl;
     cout << "==============================================" << endl;
 
     tempid = ids1[random_range(0, TESTDATA1 - 1)];
@@ -144,7 +144,7 @@ int main(int argc, char** argv) {
         cout << "NOT found: " << tempid << endl;
     }
     cout << endl;
-*/
+
     /*
      *  testing removing nodes
      */

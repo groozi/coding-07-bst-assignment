@@ -28,7 +28,7 @@ public:
 
     //public method prototypes with private overloads
     void clear();
-    bool addNode(int, const string*);
+    bool addNode(int, const string*); //working
     bool removeNode(int);
     bool getNode(Data*, int);
     bool contains(int);
@@ -44,10 +44,10 @@ private:
 
     //private methods with public overloads
     void clear(DataNode*);
-    bool addNode(DataNode*, DataNode**);
+    bool addNode(DataNode*, DataNode**); //working
     DataNode* removeNode(int, DataNode*);
-    bool getNode(Data*, int, DataNode*);
-    bool contains(int, DataNode*);
+    bool getNode(Data*, int, DataNode*); //working
+    bool contains(int, DataNode*); //working
     int getHeight(DataNode*); //stubbed with random height but working
     void displayPreOrder(DataNode*); //working with hard coded constructor
     void displayPostOrder(DataNode*); //working with hard coded constructor

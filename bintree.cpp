@@ -12,6 +12,40 @@ BinTree::BinTree(){
     count = 0;
 }
 
+//public getNode method
+bool BinTree::getNode(Data* dataStruct, int id){
+    bool gotNode = false;
+
+    if (id > 0){
+        gotNode = getNode(dataStruct, id, root);
+    }
+    return gotNode;
+}
+
+//private getNode method
+bool BinTree::getNode(Data* dataStruct, int id, DataNode* root){
+    bool flag;
+
+    if (!root){
+        flag = false;
+    }else{
+        if (id == root->data.id){
+            dataStruct->id = root->data.id;
+            dataStruct->information = root->data.information;
+            flag = true;
+        }else{
+            if (id < root->data.id){
+                flag = getNode(dataStruct, id, root->left);
+            }
+            if (id > root->data.id){
+                flag = getNode(dataStruct, id, root->right);
+            }
+        }
+    }
+    return flag;
+
+}
+
 //public contains method
 bool BinTree::contains(int id){
     bool flag = false; 
@@ -41,27 +75,6 @@ bool BinTree::contains(int id, DataNode* temproot){
             }
         }
     }
-
-    /*
-    if (!temproot){
-        flag = false;
-    }else{
-        if (id == temproot->data.id){
-            flag = true;
-        }else{
-            if (id < temproot->data.id){
-                if(contains(id, temproot->left)){
-                    flag = true;
-                }
-            }
-            if (id > temproot->data.id){
-                if(contains(id, temproot->right)){
-                    flag = true;
-                }
-            }
-        }
-    }
-    */
     return flag;
 }
 
