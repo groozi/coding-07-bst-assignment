@@ -11,6 +11,20 @@ BinTree::BinTree(){
     root = NULL;
     count = 0;
 }
+
+BinTree::~BinTree(){
+    clear();
+}
+
+
+bool BinTree::isEmpty(){
+    bool flag = false;
+    if(!root){
+        flag = true;
+    }
+    return flag;
+}
+
 //public clear method
 void BinTree::clear(){
     clear(root);
@@ -29,10 +43,7 @@ void BinTree::clear(DataNode* temproot){
         root = NULL;
         count--;
     }
-
 }
-
-
 
 
 //public getNode method
@@ -161,7 +172,11 @@ int BinTree::getHeight(){
 
 //private displayTree
 void BinTree::displayTree(){
-    cout << "tree is _____ empty" << endl;
+    if(isEmpty()){
+        cout << "Tree is empty" << endl;
+    }else{
+        cout << "Tree is NOT empty" << endl;
+    }
     cout << "Height " << getHeight() << endl;
     cout << "Node count: " << count << endl;
     cout << endl;

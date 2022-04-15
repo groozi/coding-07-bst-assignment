@@ -193,7 +193,7 @@ int main(int argc, char** argv) {
     /*
      *  filling tree with poorly chosen test data and displaying it
      */
-/*    cout << "Filling tree with poorly chosen data" << endl;
+    cout << "Filling tree with poorly chosen data" << endl;
     cout << "==============================================" << endl;
     for (int i = 0; i < TESTDATA2; i++) {
         cout << "adding " << ids2[i] << "...";
@@ -208,8 +208,6 @@ int main(int argc, char** argv) {
 
     //delete tree and make sure the destructor works
     delete binSearchTree;
-
-*/
 
     cout << endl;
     return 0;
