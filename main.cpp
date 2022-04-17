@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
      *  testing methods on empty tree
      */
 
-/*
+
 
     cout << "Testing removeNode() on empty tree" << endl;
     cout << "==============================================" << endl;
@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
     cout << "removing " << tempid << "... ";
     binSearchTree->removeNode(tempid) ? cout << "removed" << endl : cout << "failed" << endl;
     cout << endl;
-*/
+
     cout << "Testing getRootData() on empty tree" << endl;
     cout << "==============================================" << endl;
     if (binSearchTree->getRootData(&tempData)) {
@@ -148,7 +148,7 @@ int main(int argc, char** argv) {
     /*
      *  testing removing nodes
      */
-/*    cout << "Testing removeNode() randomly" << endl;
+    cout << "Testing removeNode() randomly" << endl;
     cout << "==============================================" << endl;
     tempid = ids1[random_range(0, TESTDATA1 - 1)];
     cout << "removing " << tempid << "... ";
@@ -179,7 +179,7 @@ int main(int argc, char** argv) {
     cout << endl;
     binSearchTree->displayTree();
     cout << endl;
-*/
+
     /*
      *  testing clearing tree
      *  and displaying it

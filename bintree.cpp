@@ -57,11 +57,11 @@ bool BinTree::removeNode(int id){
 
 //private removeNode method
 DataNode* BinTree::removeNode(int id, DataNode* temproot){
-    DataNode* tempNode;
+    DataNode* nodeHolder;
 
     //if the root is empty, return the root
     if (!temproot){
-        tempNode = temproot;
+        nodeHolder = temproot;
     //if the root is not empty
     } else{
         //if the search id is less than the root id, recurse left
@@ -80,19 +80,45 @@ DataNode* BinTree::removeNode(int id, DataNode* temproot){
                 //save the right
                 temp = temproot->right;
                 //delete the root
-                delete(temproot);
+                delete temproot;
                 //set root to the node you saved
                 temproot = temp;
                 //decrement the count
                 count--;
             }
-
-
+            //else if root->right == NULL then this is a node with only 1 child or no child
+            else if(temproot->right == NULL){
+                //save the left
+                temp = temproot->left;
+                //delete the root
+                delete temproot;
+                //set rot to the node you saved
+                temproot = temp;
+                count--;
+            }
+            //else this is a node with 2 children, and you need to get the inorder successor
+            else{
+                //save the in order successor
+                temp = minValueNode(temproot->right);
+                //copy the inorder successor's content to the root
+                temproot->data.id = temp->data.id;
+                temproot->data.information = temp->data.information;
+                //delete the inorder successor using recursion
+                temproot->right = removeNode(temp->data.id, temproot->right);
+                nodeHolder = temproot;
+            }
         }
-
     }
+    return nodeHolder;
+}
 
-    return tempNode;
+DataNode* BinTree::minValueNode(DataNode* node){
+    DataNode* current = node;
+
+    while (current && current->left != NULL) {
+        current = current->left; 
+    }
+    return current; 
 }
 
 //public clear method

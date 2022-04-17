@@ -53,6 +53,7 @@ private:
     void displayPreOrder(DataNode*); //working with hard coded constructor
     void displayPostOrder(DataNode*); //working with hard coded constructor
     void displayInOrder(DataNode*); //working with hard coded constructor
+    DataNode* minValueNode(DataNode*);
 
 };
 
