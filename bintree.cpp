@@ -57,16 +57,11 @@ bool BinTree::removeNode(int id){
 
 //private removeNode method
 DataNode* BinTree::removeNode(int id, DataNode* temproot){
-    DataNode* nodeHolder;
 
     //if the root is empty, return the root
-    if (!temproot){
-        //cout << "temp root is empty" << endl;
-        nodeHolder = temproot;
-    //if the root is not empty
-    } else{
-        //if the search id is less than the root id, recurse left
-        if(id < temproot->data.id){
+    if (temproot != NULL){
+
+          if(id < temproot->data.id){
             //cout << "id is less than temproot" << endl;
             temproot->left = removeNode(id, temproot->left);
         //else if the search id is greater than the root id, recurse right
@@ -116,11 +111,13 @@ DataNode* BinTree::removeNode(int id, DataNode* temproot){
                 temproot->data.information = temp->data.information;
                 //delete the inorder successor using recursion
                 temproot->right = removeNode(temp->data.id, temproot->right);
-                nodeHolder = temproot;
+            
             }
         }
-    }
-    return nodeHolder;
+
+
+    } 
+    return temproot;
 }
 
 DataNode* BinTree::minValueNode(DataNode* node){
@@ -285,6 +282,9 @@ int BinTree::getHeight(){
 
 //private displayTree
 void BinTree::displayTree(){
+    cout << "DISPLAY TREE" << endl;
+    cout << "==============================================" << endl;
+
     if(isEmpty()){
         cout << "Tree is empty" << endl;
     }else{
@@ -301,7 +301,8 @@ void BinTree::displayTree(){
     cout << endl;
     cout << "Post-Order Traversal" << endl;
     displayPostOrder();
-    cout << endl;
+    //cout << endl;
+    cout << "==============================================" << endl << endl;
 
 }
 
