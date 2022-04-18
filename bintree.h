@@ -25,34 +25,32 @@ public:
     bool isEmpty();
     int getCount();
     bool getRootData(Data*);
-    void displayTree(); //working
+    void displayTree();
 
     //public method prototypes with private overloads
     void clear();
-    bool addNode(int, const string*); //working
+    bool addNode(int, const string*);
     bool removeNode(int);
     bool getNode(Data*, int);
     bool contains(int);
-    int getHeight(); //stubbed with random height but working
-    void displayPreOrder(); //working with hard coded constructor
-    void displayPostOrder(); //working with hard coded constructor
-    void displayInOrder(); //working with hard coded constructor
+    int getHeight();
+    void displayPreOrder();
+    void displayPostOrder(); 
+    void displayInOrder(); 
 
 private: 
-    //attributes
     DataNode *root;
     int count;
 
-    //private methods with public overloads
     void clear(DataNode*);
-    bool addNode(DataNode*, DataNode**); //working
+    bool addNode(DataNode*, DataNode**); 
     DataNode* removeNode(int, DataNode*);
-    bool getNode(Data*, int, DataNode*); //working
-    bool contains(int, DataNode*); //working
-    int getHeight(DataNode*); //stubbed with random height but working
-    void displayPreOrder(DataNode*); //working with hard coded constructor
-    void displayPostOrder(DataNode*); //working with hard coded constructor
-    void displayInOrder(DataNode*); //working with hard coded constructor
+    bool getNode(Data*, int, DataNode*);
+    bool contains(int, DataNode*); 
+    int getHeight(DataNode*);
+    void displayPreOrder(DataNode*); 
+    void displayPostOrder(DataNode*);
+    void displayInOrder(DataNode*);
     DataNode* minValueNode(DataNode*);
 
 };
