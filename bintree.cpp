@@ -61,43 +61,54 @@ DataNode* BinTree::removeNode(int id, DataNode* temproot){
 
     //if the root is empty, return the root
     if (!temproot){
+        //cout << "temp root is empty" << endl;
         nodeHolder = temproot;
     //if the root is not empty
     } else{
         //if the search id is less than the root id, recurse left
         if(id < temproot->data.id){
+            //cout << "id is less than temproot" << endl;
             temproot->left = removeNode(id, temproot->left);
         //else if the search id is greater than the root id, recurse right
         } else if(id > temproot->data.id){
+            //cout << "id is greater than temproot id" << endl;
             temproot->right = removeNode(id, temproot->right);
         //else, you found the node to be deleted
         }else{
+            //cout << "entered else block in initial if/else. found node to delete" << endl;
             //allocate a temporary DataNode pointer
             DataNode* temp;
 
             //if root->left == NULL then this is a node with only 1 child or no child
             if (temproot->left == NULL){
+                //cout << "temproot's left is empty- node with 1 or no child" << endl;
+                //cout << "entered if temproot->left == NULL block" << endl;
+
                 //save the right
                 temp = temproot->right;
+                temproot = temp;
                 //delete the root
                 delete temproot;
                 //set root to the node you saved
-                temproot = temp;
+                
                 //decrement the count
                 count--;
             }
             //else if root->right == NULL then this is a node with only 1 child or no child
             else if(temproot->right == NULL){
+                //cout << "temproot right is empty- node with 1 or no children" << endl;
                 //save the left
                 temp = temproot->left;
                 //delete the root
+                temproot = temp;
                 delete temproot;
                 //set rot to the node you saved
-                temproot = temp;
+               
                 count--;
             }
             //else this is a node with 2 children, and you need to get the inorder successor
             else{
+                //cout << "node with 2 children... get in order successor" << endl;
                 //save the in order successor
                 temp = minValueNode(temproot->right);
                 //copy the inorder successor's content to the root
