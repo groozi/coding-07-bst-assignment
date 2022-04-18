@@ -27,9 +27,6 @@ int main(int argc, char** argv) {
     /*
      *  testing methods on empty tree
      */
-
-
-
     cout << "Testing removeNode() on empty tree" << endl;
     cout << "==============================================" << endl;
     tempid = 10;
@@ -58,7 +55,6 @@ int main(int argc, char** argv) {
     }
     cout << endl;
 
-
     /*
      *  filling tree with test data and displaying
      */
@@ -74,7 +70,6 @@ int main(int argc, char** argv) {
     }
     cout << endl;
     binSearchTree->displayTree();
-
 
     cout << "Testing getRootData() on non-empty tree" << endl;
     cout << "==============================================" << endl;
@@ -212,4 +207,3 @@ int main(int argc, char** argv) {
     cout << endl;
     return 0;
 }
-
