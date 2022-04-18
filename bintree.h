@@ -27,7 +27,7 @@ public:
     bool getRootData(Data*);
     void displayTree();
 
-    //public method prototypes with private overloads
+    //public methods with private overloads
     void clear();
     bool addNode(int, const string*);
     bool removeNode(int);
@@ -52,9 +52,7 @@ private:
     void displayPostOrder(DataNode*);
     void displayInOrder(DataNode*);
     DataNode* minValueNode(DataNode*);
-
 };
 
 
 #endif /* BINTREE_BINTREE_H */
-

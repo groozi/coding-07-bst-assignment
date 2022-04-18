@@ -220,7 +220,7 @@ bool BinTree::addNode(int id, const string* info){
         newNode->left = NULL;
         newNode->right = NULL;
 
-        if (addNode(newNode, &root)){
+        if(addNode(newNode, &root)){
             count++;
             added = true;
         }
@@ -230,40 +230,84 @@ bool BinTree::addNode(int id, const string* info){
 
 //private addNode
 bool BinTree::addNode(DataNode* newNode, DataNode** temproot){
-    bool added = true;
+    bool added = false;
+    
+    if (!(*temproot)){
+        *temproot = newNode;
+        added = true;
+    } else{
+        if (newNode->data.id < (*temproot)->data.id){
+            if(addNode(newNode, &(*temproot)->left)){
+              added = true;  
+            }
+            //added = true;
+        }
+        else if(newNode->data.id > (*temproot)->data.id){
+            if(addNode(newNode, &(*temproot)->right)){
+                added = true;
+            }
+        }
+    }
+
+
+
+
     /*
     bool added = false;
 
     if (*temproot == NULL){
         *temproot = newNode;
-    } else {
+        added = true;
+    }else{
+        if (newNode->data.id < (*temproot)->data.id){
 
-
-
+        }
     }
     */
 
 
+
+
+
+    
+    /*
+     bool added = false;
+  
+
     //checks if root is empty
-    if (!(*temproot)){
+    if (*temproot == NULL){
         *temproot = newNode;
+        added = true;
     }else{
         if(newNode->data.id < (*temproot)->data.id){
-            if(!addNode(newNode, &(*temproot)->left)){
-                added = false;
-            }
+            addNode(newNode, &(*temproot)->left);
+            added = true;
         }
         if(newNode->data.id > (*temproot)->data.id){
-            if(!addNode(newNode, &(*temproot)->right)){
+            addNode(newNode, &(*temproot)->right);
                 added = false;
-            }
+            
         }
     }
+    */
+
     return added;
 }
 
 //private getHeight
 int BinTree::getHeight(DataNode *temproot){
+    int lh = 0;
+    int rh = 0;
+    int finalHeight = 0;
+
+    if (temproot){
+        lh = getHeight(temproot->left);
+        rh = getHeight(temproot->right);
+        finalHeight = std::max(lh, rh) + 1;
+    }
+
+
+    /*
     int lh = 0;
     int rh = 0;
     int finalHeight;
@@ -275,6 +319,9 @@ int BinTree::getHeight(DataNode *temproot){
         rh = getHeight(temproot->right);
         finalHeight = std::max(lh, rh) + 1;
     }
+    */
+
+
     return finalHeight;
     
 }
