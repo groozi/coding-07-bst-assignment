@@ -20,4 +20,3 @@ using std::string;
 #define TESTDATA2 6
 
 #endif /* BINTREE_MAIN_H */
-
